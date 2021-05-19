@@ -21,13 +21,13 @@ while True:
             if m is not None:
                 tim = '"timestamp":"'+datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S.%f')+'"'
                 temp = '"' + "temp(degree)" + '"' + ":" + '"' + str(round(m[1],3)) + '"'
-	        hum = '"' + "humid(%)" + '"' + ":" + '"' + str(round(m[2],3)) + '"'
+                hum = '"' + "humid(%)" + '"' + ":" + '"' + str(round(m[2],3)) + '"'
                 co2 = '"' + "humid(%)" + '"' + ":" + '"' + str(round(m[0],3)) + '"'
                 mylist = [tim,temp,hum,co2]
                 mystr = '{' + ','.join(map(str,mylist))+'}'
                 print(mystr)
                 mqtt_client.publish("{}/{}".format("/demo",'car_count'), mystr)
-            time.sleep(2)
+                time.sleep(2)
             t0 = time.time()
     else:
         time.sleep(0.2)
