@@ -22,7 +22,7 @@ while True:
                 tim = '"timestamp":"'+datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S.%f')+'"'
                 co2 = round(m[0],3)
                 temp = round(m[1],3)
-                humid = round(m[2],3)
+                hum = round(m[2],3)
                 mylist = [tim,temp,hum,co2]
                 mystr = '{' + ','.join(map(str,mylist))+'}'
                 print(mystr)
