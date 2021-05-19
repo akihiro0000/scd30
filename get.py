@@ -29,7 +29,7 @@ while True:
                 
                 print(f"CO2: {m[0]:.2f}ppm, temp: {m[1]:.2f}'C, rh: {m[2]:.2f}%")
             time.sleep(2)
-        t0 = time.time()
+            t0 = time.time()
     else:
         time.sleep(0.2)
 mqtt_client.disconnect()
