@@ -9,3 +9,6 @@ RUN pip3 install RPi.GPIO paho-mqtt datetime smbus2 scd30_i2c
 
 WORKDIR /root
 
+RUN git clone --depth 1 https://github.com/akihiro0000/scd30.git
+
+WORKDIR /root/scd30
