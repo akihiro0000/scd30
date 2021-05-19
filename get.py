@@ -20,10 +20,10 @@ while True:
             m = scd30.read_measurement()
             if m is not None:
                 tim = '"timestamp":"'+datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S.%f')+'"'
-                co2 = round(m[0],3)
-                temp = round(m[1],3)
-                hum = round(m[2],3)
-                mylist = [tim,str(temp),str(hum),str(co2)]
+                temp = '"' + "temp(degree)" + '"' + ":" + '"' + round(m[1],3) + '"'
+	            hum = '"' + "humid(%)" + '"' + ":" + '"' + round(m[2],3) + '"'
+                co2 = '"' + "humid(%)" + '"' + ":" + '"' + rround(m[0],3) + '"'
+                mylist = [tim,temp,hum,co2]
                 mystr = '{' + ','.join(map(str,mylist))+'}'
                 print(mystr)
                 mqtt_client.publish("{}/{}".format("/demo",'car_count'), mystr)
