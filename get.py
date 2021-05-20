@@ -4,12 +4,16 @@ import paho.mqtt.client as mqtt
 import pytz
 from datetime import datetime
 
-scd30 = SCD30()
+try:
+    scd30 = SCD30()
 
-scd30.set_measurement_interval(10)
-scd30.start_periodic_measurement()
+    scd30.set_measurement_interval(10)
+    scd30.start_periodic_measurement()
 
-time.sleep(2)
+    time.sleep(2)
+except TimeoutError as e:
+    print(e)
+    pass
 
 
 mqtt_client = mqtt.Client()
@@ -35,9 +39,6 @@ while True:
         else:
             time.sleep(0.2)
     except OSError as e:
-        print(e)
-        pass
-    except TimeoutError as e:
         print(e)
         pass
 mqtt_client.disconnect()
