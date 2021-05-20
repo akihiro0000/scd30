@@ -25,7 +25,7 @@ while True:
                 co2 = '"' + "co2(ppm)" + '"' + ":" + '"' + str(round(m[0],3)) + '"'
                 mylist = [tim,temp,hum,co2]
                 mystr = '{' + ','.join(map(str,mylist))+'}'
-                if str(round(m[1],3))=="nan":
+                if str(round(m[1],3))!="nan":
                     print(mystr)
                     mqtt_client.publish("{}/{}".format("/demo",'car_count'), mystr)
                     time.sleep(1)
