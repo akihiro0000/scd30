@@ -37,4 +37,7 @@ while True:
     except OSError as e:
         print(e)
         pass
+    except TimeoutError as e:
+        print(e)
+        pass
 mqtt_client.disconnect()
