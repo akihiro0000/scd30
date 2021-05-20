@@ -14,7 +14,7 @@ try:
     time.sleep(2)
 except TimeoutError as e:
     print(e)
-    os.system('ls')
+    os.system('exit')
     pass
 
 
