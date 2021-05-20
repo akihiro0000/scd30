@@ -3,6 +3,7 @@ import time
 import paho.mqtt.client as mqtt
 import pytz
 from datetime import datetime
+import os
 
 try:
     scd30 = SCD30()
@@ -13,6 +14,7 @@ try:
     time.sleep(2)
 except TimeoutError as e:
     print(e)
+    os.system('ls')
     pass
 
 
