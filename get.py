@@ -6,7 +6,7 @@ from datetime import datetime
 
 scd30 = SCD30()
 
-scd30.set_measurement_interval(2)
+scd30.set_measurement_interval(10)
 scd30.start_periodic_measurement()
 
 time.sleep(2)
@@ -26,7 +26,7 @@ while True:
             mystr = '{' + ','.join(map(str,mylist))+'}'
             print(mystr)
             mqtt_client.publish("{}/{}".format("/demo",'car_count'), mystr)
-            time.sleep(2)
+            time.sleep(1)
     else:
         time.sleep(0.2)
 mqtt_client.disconnect()
