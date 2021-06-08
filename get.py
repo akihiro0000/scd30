@@ -26,7 +26,7 @@ while True:
             m = scd30.read_measurement()
             if m is not None:
                 tim = '"timestamp":"'+datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S.%f')+'"'
-                temp = '"' + "temp(degree)" + '"' + ":" + '"' + str(round(m[1]-2.2,3)) + '"'
+                temp = '"' + "temp(degree)" + '"' + ":" + '"' + str(round(m[1]-3.5,3)) + '"'
                 hum = '"' + "humid(%)" + '"' + ":" + '"' + str(round(m[2],3)) + '"'
                 co2 = '"' + "co2(ppm)" + '"' + ":" + '"' + str(round(m[0],3)) + '"'
                 mylist = [tim,temp,hum,co2]
