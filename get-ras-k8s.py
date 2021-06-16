@@ -27,7 +27,7 @@ def metrics():
           if scd30.get_data_ready():
               m = scd30.read_measurement()
               if m is not None:
-                  tim = '"timestamp":"'+datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S.%f')+'"'
+                  tim = '"timestamp":"'+datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-$
                   temp = '"' + "temp(degree)" + '"' + ":" + '"' + str(round(m[1]-3.5,3)) + '"'
                   hum = '"' + "humid(%)" + '"' + ":" + '"' + str(round(m[2],3)) + '"'
                   co2 = '"' + "co2(ppm)" + '"' + ":" + '"' + str(round(m[0],3)) + '"'
@@ -44,6 +44,6 @@ def metrics():
       except OSError as e:
           print(e)
           pass
-       
- if __name__ == "__main__":
+
+if __name__ == "__main__":
     app.run(host='0.0.0.0')
